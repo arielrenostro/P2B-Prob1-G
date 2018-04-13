@@ -139,7 +139,9 @@ public class ReprodutorAudio implements FormatoAudio {
 
 	@Override
 	public void avancar(int posicao) {
-		tempoAudio += posicao;
+		if (posicao > 0) {
+                tempoAudio += posicao;
+        } 
 		switch (tipoArquivo) {
 			case AIFF:
 				avancarAiff();
