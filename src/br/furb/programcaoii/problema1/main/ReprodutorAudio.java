@@ -23,7 +23,7 @@ public class ReprodutorAudio implements FormatoAudio {
 	private void instanciarPlayers() {
 		resetarPlayers();
 
-		String identificador = Util.isEmpty(caminho) ? caminho.toLowerCase() : "";
+		String identificador = !Util.isEmpty(caminho) ? caminho.toLowerCase() : "";
 
 		if (identificador.endsWith(".aiff")) {
 			tipoArquivo = TipoArquivo.AIFF;
