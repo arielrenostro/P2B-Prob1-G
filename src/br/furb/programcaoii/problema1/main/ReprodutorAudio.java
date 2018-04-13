@@ -23,7 +23,7 @@ public class ReprodutorAudio implements FormatoAudio {
 	private void instanciarPlayers() {
 		resetarPlayers();
 
-		String identificador = !Util.isEmpty(caminho) ? caminho.toLowerCase() : "";
+		String identificador = Util.isNotEmpty(caminho) ? caminho.toLowerCase() : "";
 
 		if (identificador.endsWith(".aiff")) {
 			tipoArquivo = TipoArquivo.AIFF;
@@ -47,6 +47,7 @@ public class ReprodutorAudio implements FormatoAudio {
 
 	@Override
 	public void reproduzir() {
+		
 		switch (tipoArquivo) {
 			case AIFF:
 				reproduzirAiff();
@@ -68,7 +69,17 @@ public class ReprodutorAudio implements FormatoAudio {
 	}
 
 	private void reproduzirWav() {
+		setarTempoCorretoWav();
 		wavPlayer.play();
+	}
+
+	private void setarTempoCorretoWav() {
+		int difTempo = (wavPlayer.forward(0) / 1000) - tempoAudio;
+		if (difTempo > 0) {
+			wavPlayer.forward(difTempo * 1000);
+		} else {
+			wavPlayer.reward(difTempo / 1000);
+		}
 	}
 
 	private void reproduzirWma() {
