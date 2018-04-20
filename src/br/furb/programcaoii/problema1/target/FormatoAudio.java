@@ -1,4 +1,4 @@
-package br.furb.programcaoii.problema1.main;
+package br.furb.programcaoii.problema1.target;
 
 public interface FormatoAudio {
 
