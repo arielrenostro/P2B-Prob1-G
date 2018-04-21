@@ -3,3 +3,11 @@
 .project
 .settings/org.eclipse.jdt.core.prefs
 /bin/
+nbproject/build-impl.xml
+build.xml
+nbproject/genfiles.properties
+nbproject/project.properties
+nbproject/project.xml
+manifest.mf
+nbproject/private/private.properties
+nbproject/private/private.xml
