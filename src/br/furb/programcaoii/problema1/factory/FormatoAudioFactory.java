@@ -7,11 +7,15 @@ import br.furb.programcaoii.problema1.adapter.WAVPlayerAdapter;
 import br.furb.programcaoii.problema1.adapter.WmaPlayAdapter;
 import br.furb.programcaoii.problema1.adapter.AACPlayerAdapter;
 import br.furb.programcaoii.problema1.adapter.MP3DJAdapter;
-       
+/**
+ *
+ * @author silvinos
+ */   
 public class FormatoAudioFactory {
-	
+	//Fazer mais testes
 	public static FormatoAudio getInstanciaFormatoAudio(String arquivo) {
             String identificador = Util.isNotEmpty(arquivo) ? arquivo.toLowerCase() : "";
+            FormatoAudio formatoAudio;
             if (identificador.endsWith(".aiff")) {
                 return new AIFFSuperPlayerAdapter(arquivo);
             } else if (identificador.endsWith(".wav")) {

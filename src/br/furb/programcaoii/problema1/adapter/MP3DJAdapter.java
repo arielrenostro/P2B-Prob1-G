@@ -1,51 +1,65 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.furb.programcaoii.problema1.adapter;
 
 import br.furb.programcaoii.problema1.target.FormatoAudio;
-//import problema1.MP3DJ;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import problema1.MP3DJ;
 /**
  *
- * @author User
+ * @author silvinos
  */
-public class MP3DJAdapter /*extends MP3DJ*/ implements FormatoAudio{
+public class MP3DJAdapter extends MP3DJ implements FormatoAudio {
+
+    //Atributos da classe    
+    private int tempoAudio;
 
     @Override
     public void abrir(String caminho) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //passo o caminho para o metodo setFile para setar o arquivo  
+        this.setFile(caminho);
     }
 
     @Override
-    public void reproduzir() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void reproduzir() {        
+        this.play();
     }
 
     @Override
     public void pausar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //paro a reprodução
+        this.stop();
+        //passo para o atributo tempoAudio o valor da posição em que está
+        tempoAudio = this.forward(0);
     }
 
     @Override
     public void parar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //retrocedo o tempo da reprodução para o inicio.
+        this.reward(tempoAudio);
+        //paro a reprodução
+        this.stop();
     }
 
     @Override
     public void avancar(int posicao) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.forward(posicao);
     }
 
     @Override
     public void retornar(int posicao) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.reward(posicao);
     }
 
     @Override
     public void liberar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            //seto o objeto nulo.
+            tempoAudio = 0;
+            this.reward(tempoAudio);
+            this.finalize();
+        } catch (Throwable ex) {
+            ex.printStackTrace();
+        }
     }
-    
+
 }
