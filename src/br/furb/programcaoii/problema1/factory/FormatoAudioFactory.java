@@ -6,6 +6,7 @@ public class FormatoAudioFactory {
 	
 	public static FormatoAudio getInstanciaFormatoAudio(String arquivo) {
 		// TODO implementar a instancia de cada formato audio baseado no arquivo enviado por parametro
+		return null;
 	}
 
 }
