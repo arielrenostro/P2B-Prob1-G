@@ -57,7 +57,7 @@ public class MP3DJAdapter implements FormatoAudio {
             //seto o objeto nulo.
             tempoAudio = 0;
             mp3DJ.reward(tempoAudio);
-            mp3DJ.finalize();
+            mp3DJ = null;
         } catch (Throwable ex) {
             ex.printStackTrace();
         }
