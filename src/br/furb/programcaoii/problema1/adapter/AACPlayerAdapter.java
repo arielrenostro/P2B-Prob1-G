@@ -11,40 +11,83 @@ import br.furb.programcaoii.problema1.target.FormatoAudio;
  */
 //Favor arrumar
 public class AACPlayerAdapter implements FormatoAudio{
+    
+    private AACPlayer player = null;
+    private int location = 0;
+    private boolean tocando;
+    
+    public AACPlayerAdapter(){
+        super();
+    }
 
     @Override
     public void abrir(String caminho) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.player = new AACPlayer(caminho);
+        this.player.open();
+        this.player.setLocation(0);
     }
 
     @Override
     public void reproduzir() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.player.setLocation(location);
+        this.player.play();
+        this.tocando = true;
+        
     }
 
     @Override
     public void pausar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(this.tocando){
+            this.player.stop();
+            this.location = player.getLocation();
+            this.tocando = false;
+        }
     }
 
     @Override
     public void parar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.player.stop();
+        this.player.stop();
+        this.tocando = false;
+         
     }
 
     @Override
     public void avancar(int posicao) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        boolean tocando = this.tocando;
+        
+        if(tocando)
+            pausar();
+        
+        this.location += posicao;
+        this.player.setLocation(this.location);
+        
+        if(tocando)
+            reproduzir();
+
     }
 
     @Override
     public void retornar(int posicao) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        boolean tocando = this.tocando;
+        
+        if(tocando)
+            pausar();
+        
+        this.location -= posicao;
+        this.player.setLocation(this.location);
+        
+        if(tocando)
+            reproduzir();
+        
     }
 
     @Override
     public void liberar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        parar();
+        this.player = null;
     }
     
 }
