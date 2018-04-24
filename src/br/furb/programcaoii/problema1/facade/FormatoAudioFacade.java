@@ -7,11 +7,19 @@ public class FormatoAudioFacade {
 	private FormatoAudio formatoAudio;
 	
 	public void reproduzirSimples(String arquivo) {
-		// Implementar o reproduzir simples conforme o solicitado pelo enunciado
-	}
-	
+            
+            FormatoAudioFactory formato = new FormatoAudioFactory();
+            this.formatoAudio = formato.getInstanciaFormatoAudio(arquivo);
+            this.formatoAudio.abrir(arquivo);
+            this.formatoAudio.reproduzir();
+            
+        }
+       
 	public void pararSimples() {
-		// Implementar o pararSimples conforme o solicitado no enunciado
+            
+            this.formatoAudio.parar();
+            this.formatoAudio.liberar();
+            this.formatoAudio = null;
 	}
-
 }
+  
