@@ -1,5 +1,6 @@
 package br.furb.programcaoii.problema1.facade;
 
+import br.furb.programcaoii.problema1.factory.FormatoAudioFactory;
 import br.furb.programcaoii.problema1.target.FormatoAudio;
 
 public class FormatoAudioFacade {
@@ -8,8 +9,7 @@ public class FormatoAudioFacade {
 	
 	public void reproduzirSimples(String arquivo) {
             
-            FormatoAudioFactory formato = new FormatoAudioFactory();
-            this.formatoAudio = formato.getInstanciaFormatoAudio(arquivo);
+            this.formatoAudio = FormatoAudioFactory.getInstanciaFormatoAudio(arquivo);
             this.formatoAudio.abrir(arquivo);
             this.formatoAudio.reproduzir();
             

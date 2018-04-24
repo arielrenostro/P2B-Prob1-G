@@ -5,12 +5,13 @@
  */
 package br.furb.programcaoii.problema1.adapter;
 import br.furb.programcaoii.problema1.target.FormatoAudio;
+import problema1.AACPlayer;
 /**
  *
  * @author User
  */
 //Favor arrumar
-public class AACPlayerAdapter implements FormatoAudio{
+public class AACPlayerAdapter implements FormatoAudio {
     
     private AACPlayer player = null;
     private int location = 0;
@@ -24,7 +25,7 @@ public class AACPlayerAdapter implements FormatoAudio{
     public void abrir(String caminho) {
         this.player = new AACPlayer(caminho);
         this.player.open();
-        this.player.setLocation(0);
+        this.location = 0;
     }
 
     @Override
@@ -47,9 +48,8 @@ public class AACPlayerAdapter implements FormatoAudio{
     @Override
     public void parar() {
         this.player.stop();
-        this.player.stop();
         this.tocando = false;
-         
+        this.location = 0;
     }
 
     @Override
