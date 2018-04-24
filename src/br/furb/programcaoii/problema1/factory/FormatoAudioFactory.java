@@ -14,7 +14,6 @@ import br.furb.programcaoii.problema1.adapter.MP3DJAdapter;
  */   
 public class FormatoAudioFactory {
 	
-	//Fazer mais testes
 	public static FormatoAudio getInstanciaFormatoAudio(String arquivo) {
         String identificador = Util.isNotEmpty(arquivo) ? arquivo.toLowerCase() : "";
         
@@ -30,6 +29,6 @@ public class FormatoAudioFactory {
             return new AACPlayerAdapter();
         }
             
-        throw new IllegalArgumentException("Tipo de audio n„o suportado");            	
+        throw new IllegalArgumentException("Tipo de audio n√£o suportado");            	
 	}
 }
