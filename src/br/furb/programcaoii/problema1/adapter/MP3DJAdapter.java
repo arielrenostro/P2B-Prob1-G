@@ -8,46 +8,47 @@ import problema1.MP3DJ;
  *
  * @author silvinos
  */
-public class MP3DJAdapter extends MP3DJ implements FormatoAudio {
+public class MP3DJAdapter implements FormatoAudio {
 
     //Atributos da classe    
     private int tempoAudio;
-
+    private MP3DJ mp3DJ;
     @Override
     public void abrir(String caminho) {
+        mp3DJ = new MP3DJ();
         //passo o caminho para o metodo setFile para setar o arquivo  
-        this.setFile(caminho);
+        mp3DJ.setFile(caminho);
     }
 
     @Override
     public void reproduzir() {        
-        this.play();
+        mp3DJ.play();
     }
 
     @Override
     public void pausar() {
         //paro a reprodução
-        this.stop();
+        mp3DJ.stop();
         //passo para o atributo tempoAudio o valor da posição em que está
-        tempoAudio = this.forward(0);
+        tempoAudio = mp3DJ.forward(0);
     }
 
     @Override
     public void parar() {
         //retrocedo o tempo da reprodução para o inicio.
-        this.reward(tempoAudio);
+        mp3DJ.reward(tempoAudio);
         //paro a reprodução
-        this.stop();
+        mp3DJ.stop();
     }
 
     @Override
     public void avancar(int posicao) {
-        this.forward(posicao);
+        mp3DJ.forward(posicao);
     }
 
     @Override
     public void retornar(int posicao) {
-        this.reward(posicao);
+        mp3DJ.reward(posicao);
     }
 
     @Override
@@ -55,8 +56,8 @@ public class MP3DJAdapter extends MP3DJ implements FormatoAudio {
         try {
             //seto o objeto nulo.
             tempoAudio = 0;
-            this.reward(tempoAudio);
-            this.finalize();
+            mp3DJ.reward(tempoAudio);
+            mp3DJ.finalize();
         } catch (Throwable ex) {
             ex.printStackTrace();
         }
