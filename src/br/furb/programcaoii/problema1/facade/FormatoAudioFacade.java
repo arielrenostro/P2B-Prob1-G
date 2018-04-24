@@ -1,6 +1,7 @@
 package br.furb.programcaoii.problema1.facade;
 
 import br.furb.programcaoii.problema1.target.FormatoAudio;
+import br.furb.programcaoii.problema1.factory.FormatoAudioFactory;
 
 public class FormatoAudioFacade {
 	
