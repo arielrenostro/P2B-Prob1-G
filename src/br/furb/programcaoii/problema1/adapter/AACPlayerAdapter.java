@@ -5,11 +5,12 @@
  */
 package br.furb.programcaoii.problema1.adapter;
 import br.furb.programcaoii.problema1.target.FormatoAudio;
+import problema1.AACPlayer;
 /**
  *
  * @author User
  */
-//Favor arrumar
+
 public class AACPlayerAdapter implements FormatoAudio{
     
     private AACPlayer player = null;
