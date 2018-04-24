@@ -1,0 +1,15 @@
+As classes que são Adapter: 
+br.furb.programcaoii.problema1.adapter.AACPlayerAdapter;
+br.furb.programcaoii.problema1.adapter.AIFFSuperPlayerAdapter;
+br.furb.programcaoii.problema1.adapter.MP3DJAdapter;
+br.furb.programcaoii.problema1.adapter.WAVPlayerAdapter;
+br.furb.programcaoii.problema1.adapter.WmaPlayAdapter;
+
+As classes que são Facade:
+br.furb.programcaoii.problema1.facade.FormatoAudioFacade;
+
+As classes que são Factory:
+br.furb.programcaoii.problema1.factory.FormatoAudioFactory;
+
+As classes que são Target:
+br.furb.programcaoii.problema1.target.FormatoAudio;
